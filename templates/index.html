@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People Registration</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Welcome to the Pair Drawer!</h1>
+    <div class="buttons">
+        <a href="/register">Register Person</a>
+        <a href="/draw">Perform Draw</a>
+        <form action="/reset" method="POST" style="display: inline;">
+            <button type="submit" style="background-color: #dc3545;">Reset Draw</button>
+        </form>
+    </div>
+    <h2>Registered People:</h2>
+    <ul>
+        {% for person in people %}
+        <li>
+            {{ person }}
+            <a href="/edit/{{ person }}" style="background-color: #007bff;">Edit</a>
+            <form action="/delete/{{ person }}" method="POST" style="display: inline;">
+                <button type="submit" style="background-color: #dc3545;">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

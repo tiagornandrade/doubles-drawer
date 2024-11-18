@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Participant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Edit Participant</h1>
+    <form method="POST">
+        <label for="new_name">New Name:</label>
+        <input type="text" name="new_name" id="new_name" value="{{ name }}" required>
+        <button type="submit">Save Changes</button>
+    </form>
+    <div class="buttons">
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>

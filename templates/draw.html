@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Draw</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Pair Draw</h1>
+    
+    {% if message %}
+    <p style="color: red;">{{ message }}</p>
+    {% endif %}
+
+    {% if round %}
+    <h2>Current Round</h2>
+    <ul>
+        {% for pair in round %}
+        <li>{{ pair[0] }} and {{ pair[1] }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if excluded %}
+    <p><strong>Left out in this round:</strong> {{ excluded }}</p>
+    {% endif %}
+    {% endif %}
+
+    <h2>History of Drawn Pairs</h2>
+    {% if drawn_pairs %}
+    <ul>
+        {% for pair in drawn_pairs %}
+        <li>{{ pair[0] }} and {{ pair[1] }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No pairs have been drawn yet.</p>
+    {% endif %}
+
+    <form method="POST">
+        <button type="submit">Draw Again</button>
+    </form>
+    <div class="buttons">
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
